@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표 관련 태그</title>
+</head>
+<body>
+    <!--표를 만드는 태그에는 <table>,<tr>,<td>,<th> 가 있음-->
+    <!--
+        <table> : 기본적으로 표를 생성해주는 태그
+        <tr> : 표의 행을 나타내는 태그(가로)
+        <td> : 표의 열을 나타내는 태그(세로)
+        <th> : 표의 제목 셀을 나타내는 태그
+    -->
+    <h1>기본적인 표 만들기</h1>
+    <table border="1">
+        <caption><b>웹 브라우저의 종류</b></caption>
+        <tr>
+            <th>브라우저명</th>
+            <th>제조사</th>
+            <th>홈페이지</th>
+        </tr>
+        <tr>
+            <td>엣지</td>
+            <td>MS</td>
+            <td>https://www.microsoft.com</td>
+        </tr>
+        <tr>
+            <td>크롬</td>
+            <td>Google</td>
+            <td>https://www.google.com</td>
+        </tr>
+        <tr>
+            <td>사파리</td>
+            <td>애플</td>
+            <td>https://www.apple.com</td>
+        </tr>
+        <tr>
+            <td>파이어폭스</td>
+            <td>Mozila</td>
+            <td>https://www.mozilla.org</td>
+        </tr>
+    </table>
+    <figure>figure를 이용하여 설명을 적을 수 있다.</figure>
+    <!--border가 없으면 표의 테두리가 만들어지지 않음-->
+    <!--caption은 표의 제목같은걸 달아줌-->
+    
+    <h1>표의 행과 열 합치기</h1>
+    <table border="1">
+        <tr>
+            <td rowspan="2">섹션1-1</td>
+            <td>섹션1-2</td>
+        </tr>
+        <tr>
+            <!--<td>섹션2-1</td>-->
+            <td>섹션2-2</td>
+        </tr>
+    </table>
+    <!--열을 기준으로 행과행을 합친다. rowspan(아래로 합쳐짐)-->
+
+    <h1>표의 행과 열 합치기2</h1>
+    <table border="1">
+        <tr>
+            <td colspan="2">섹션1-1</td>
+            <!--<td>섹션1-2</td>-->
+        </tr>
+        <tr>
+            <td>섹션2-1</td>
+            <td>섹션2-2</td>
+        </tr>
+    </table>
+    <!--행을 기준으로 열과열을 합친다. colspan(옆으로 합쳐짐)숫자는 합치는 갯수를 의미함-->
+    <h1>표의 행과 열 합치기 연습</h1>
+    <table border="1">
+        <tr>
+            <td rowspan="2" height="100">사진</td>
+            <td height="50">이름</td>
+            <td colspan="2" width="200" height="50"></td>
+            <!--<td>섹션1-4</td>-->
+        </tr>
+        <tr>
+            <!--<td>섹션1-1</td>-->
+            <td height="50">연락처</td>
+            <td colspan="2" width="200" height="50"></td>
+            <!--<td>섹션1-2</td>-->
+        </tr>
+        <tr>
+            <td height="100">주소</td>
+            <td colspan="3" height="50"></td>
+            <!--<td>섹션1-1</td>-->
+            <!--<td>섹션1-2</td>-->
+        </tr>
+        <tr>
+            <td height="100">자기소개</td>
+            <td colspan="3" height="50"></td>
+            <!--<td>섹션1-1</td>-->
+            <!--<td>섹션1-2</td>-->
+        </tr>
+    </table>
+    <!--width는 칸을 가로로 늘려주고 height는 세로로 늘려준다 CSS를 아직 안배워서 사용했음-->
+</body>
+</html>
