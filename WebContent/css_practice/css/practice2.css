@@ -1,0 +1,22 @@
+#div1{
+    background-color:  black;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
+#div2{
+    text-align: center;
+}
+h1{
+    color: red;
+}
+span{
+    color: blue;
+}
+.container{
+    border: 1px solid #ccc;
+    width: 700px;
+}
+img{
+    width: 700px;
+}

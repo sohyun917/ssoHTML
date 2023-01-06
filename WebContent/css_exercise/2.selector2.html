@@ -31,6 +31,106 @@
             background-color: red;
          }
          /* 동위선택자 : h5를 기준으로 바로 다음것만 선택 */
+         /* 
+         일반 구조 선택자(구조 의사 클래스) (앞에는 태그를 적어줘야해)
+         1. first-child
+         2. last-child
+         3. nth-child()
+         4. nth-last-child()
+         */
+         #div-test1 p {
+            --color: blue;
+            --background-color: red;
+         }
+         /* div-test1 이라는 아이디를 가진것 밑에 p들을 선택 */
+         #div-test1 p:first-child {
+            color: blue;
+         }
+         #div-test1 p:last-child{
+            color: red;
+         }
+         #div-test1 p:nth-child(2n){
+            color: yellow;
+         }
+         /* 2의 배수줄을 선택 */
+         /* 
+         형태 구조 선택자
+         1. first-of-type
+         2. last-of-type
+         3. nth-of-type()
+         4. nth-last-of-type()
+          */
+        #div-test4 p:last-child{
+            --color: green;
+        }
+        /* 다른 태그랑 섞여있으면 기본구조선택자로 고를 수 없다. */
+        #div-test4 p:last-of-type{
+            color: green;
+        }
+        /* 다른 태그가 섞여 있을때는 형태구조선택자로 골라야해 */
+        #div-test4 h4:first-of-type{
+            background-color: rebeccapurple;
+        }
+        /* 
+        반응선택자
+        1. active
+        2. hover
+         */
+        #div-test4:active{
+            --background-color: blue;
+        }
+        /* 클릭시 색이 나옴 */
+        #div-test4:hover{
+           --background-color: tomato;
+        }
+        /* 마우스를 갖다대면 색이 나옴 */
+        /* 
+        상태선택자(input태그 관련)
+        1. check : 체크 상태의 input태그를 선택
+        2. focus : 커서가 있는 input태그를 선택
+         */
+        [type=text]:focus{
+            background-color: azure;
+        }
+        /* 입력을 위해 커서를 클릭하면 색이 변함 */
+        [type=checkbox]:checked{
+            width: 50px;
+            height: 50px;
+        }
+        /* 체크를 클릭하면 사이즈가 커진다.. */
+        /* 
+        속성 선택자
+        1. enabled : option태그에서 선택 가능한 상태
+        2. disabled : option태그에서 선택 불가능한 상태
+         */
+         option:disabled{
+            background-color: red;
+         }
+         /* 선택이 불가능한 옵션을 색칠해준다 */
+         option:enabled{
+            background-color: green;
+         }
+         /* 선택이 가능한 옵션을 색칠해준다 */
+         /* 
+         링크 선택자
+         1. link : 
+         2. visited : 
+         */
+         a:link{
+            color: palegreen;
+         }
+         /* 들어가지 않은 링크주소색깔을 변경 */
+         a:visited{
+            color: darkorange;
+         }
+         /* 들어갔다가 나온 링크주소색깔을 변경 */
+         /* 
+         부정 선택자
+         */
+         #div-test4 p:not(:nth-of-type(2n)){
+            background-color: gold;
+         }
+         /* 내가 선택하지 않은것을 선택한다 (1p와3p를 선택함) */
     </style>
 </head>
 <body>
@@ -42,6 +142,66 @@
         <p>자손4</p>
         <p>자손5</p>
     </div>
+
+    <h1>일반 구조 선택자</h1>
+<div>
+    <div id="div-test1">
+        <p>테스트1-1 입니다.</p>
+        <p>테스트1-2 입니다.</p>
+        <p>테스트1-3 입니다.</p>
+        <p>테스트1-4 입니다.</p>
+        <p>테스트1-5 입니다.</p>
+    </div>
+    <div id="div-test2">
+        <p>테스트2-1 입니다.</p>
+        <p>테스트2-2 입니다.</p>
+        <p>테스트2-3 입니다.</p>
+    </div>
+</div>
+
+<div id="div-test3">
+    <p>테스트1 입니다.</p>
+    <p>테스트2 입니다.</p>
+    <p>테스트3 입니다.</p>
+    <p>테스트4 입니다.</p>
+    <p>테스트5 입니다.</p>
+    <p>테스트6 입니다.</p>
+</div>
+<h1>형태 구조 선택자</h1>
+<div id="div-test4">
+    <p>테스트 1p입니다.</p>
+    <h4>테스트 h4의 1번째</h4>
+    <p>테스트 2p입니다.</p>
+    <h4>테스트 h4의 2번째</h4>
+    <p>테스트 3p입니다.</p>
+    <h4>테스트 h4의 3번째</h4>
+    <p>테스트 4p입니다.</p>
+    <h4>테스트 h4의 4번째</h4>
+</div>
+
+<h1>상태,속성,링크 선택자</h1>
+<form action="">
+    <fieldset>
+        <legend>회원 정보 입력</legend>
+        이름 : <input type="text"><br>
+        아이디 : <input type="text"><br>
+        이메일 : <input type="text"><br>
+        취미 : <input type="checkbox" name="" id="">독서
+        <input type="checkbox" name="" id="">코딩
+        <input type="checkbox" name="" id="">수영<small>(상태선택자)</small><br>
+        <select name="" id="">
+            <option value=""disabled>자바</option>
+            <option value="">오라클</option>
+            <option value="">JDBC</option>
+            <option value="">HTML</option>
+            <option value="">CSS</option>
+        </select><small>(속성 선택자)</small><br>
+        <a href="https://www.iei.or.kr">KH정보교육원</a><small>(링크선택자)</small>
+        <input type="submit" value="제출하기">
+        <input type="reset" value="취소하기">
+    </fieldset>
+</form>
+
 
 </body>
 </html>

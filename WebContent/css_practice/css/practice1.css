@@ -1,0 +1,19 @@
+.container{
+    border: 1px solid #ccc;
+    width: 500px;
+    padding: 10px;
+    margin: 20px auto; /*20px는 위에서 20px띄운다는 얘기, auto는 양옆을 페이지크기에 자동으로 맞춰주는거*/
+}
+ul{
+    list-style-type: none;
+    /* 리스트번호를 없애주는 기능 */
+}
+li{
+    line-height: 2.0;
+    /* 줄 간격을 넓혀줌 */
+}
+.subject{
+    color: #ad3000;
+    font-weight: 700;
+    font-size: larger;
+}
